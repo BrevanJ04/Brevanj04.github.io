@@ -8,17 +8,20 @@
 }
 
 .flex-container > div {
-  width: 896px;
+  width: 960px;
   margin: 5px;
-  line-height: 504px;
+  line-height: 540px;
 }
 
 </style>
 </head>
 <body>
-<h1>Flexible Boxes 2</h1>
-<button onclick="openFullscreen();">Proctor Mode</button>
+<h1>Flexible Boxes</h1>
+<button onclick="openFullscreen();">Open Fullscreen</button>
+<button onclick="closeFullscreen();">Close Fullscreen</button>
+
 <script>
+var elem = document.documentElement;
 function openFullscreen() {
   if (elem.requestFullscreen) {
     elem.requestFullscreen();
@@ -30,7 +33,20 @@ function openFullscreen() {
     elem.msRequestFullscreen();
   }
 }
+
+function closeFullscreen() {
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if (document.mozCancelFullScreen) {
+    document.mozCancelFullScreen();
+  } else if (document.webkitExitFullscreen) {
+    document.webkitExitFullscreen();
+  } else if (document.msExitFullscreen) {
+    document.msExitFullscreen();
+  }
+}
 </script>
+
 <div class="flex-container">
   <div><iframe src="https://meet.jit.si/" allow="microphone; camera" width="100%" height="100%" align="left|top" frameborder="0"></iframe></div>
   <div><iframe src="https://meet.jit.si/" allow="microphone; camera" width="100%" height="100%" align="left|top" frameborder="0"></iframe></div>
